@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Linspine.Collection
 {
-    public sealed class LSVisualCollection : List<LSVisual>
+    public sealed class LSNodeCollection : List<LSNode>
     {
-        internal LSVisualCollection()
+        internal LSNodeCollection()
         {
 
         }

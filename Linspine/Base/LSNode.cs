@@ -9,6 +9,6 @@ namespace Linspine.Base
 
         public SyntaxNode CurrentNode { get; protected set; }
 
-        public LSVisualCollection Children { get; private set; } = new LSVisualCollection();
+        public LSNodeCollection Children { get; private set; } = new LSNodeCollection();
     }
 }
