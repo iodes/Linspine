@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Linspine.Syntax
+namespace Linspine.Visual
 {
-    public class LSCompilationUnit : LSNode
+    public class LSMethodDeclaration : LSVisual
     {
 
     }

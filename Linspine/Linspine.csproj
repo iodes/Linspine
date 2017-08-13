@@ -182,8 +182,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\LSNode.cs" />
-    <Compile Include="Collection\LSNodeCollection.cs" />
+    <Compile Include="Base\LSVisual.cs" />
+    <Compile Include="Collection\LSVisualCollection.cs" />
     <Compile Include="LSAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -198,7 +198,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Syntax\LSCompilationUnit.cs" />
+    <Compile Include="Visual\LSClassDeclaration.cs" />
+    <Compile Include="Visual\LSCompilationUnit.cs" />
+    <Compile Include="Visual\LSMethodDeclaration.cs" />
+    <Compile Include="Visual\LSNamespaceDeclaration.cs" />
+    <Compile Include="Visual\LSUsingDirective.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

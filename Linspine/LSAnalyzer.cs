@@ -1,85 +1,80 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using Linspine.Base;
+using Linspine.Collection;
+using Linspine.Visual;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Linspine
 {
-    public class LSAnalyzer
+    public static class LSAnalyzer
     {
-        #region 속성
-        public string Source
+        public static LSVisualCollection Analyze(string text)
         {
-            get
-            {
-                return _Source;
-            }
-            set
-            {
-                _Source = value;
-                Analyze();
-            }
-        }
-        private string _Source;
-        #endregion
-
-        #region 객체
-        private SyntaxTree tree;
-        #endregion
-
-        #region 생성자
-        public LSAnalyzer()
-        {
-
+            return Analyze(CSharpSyntaxTree.ParseText(text).GetRoot());
         }
 
-        public LSAnalyzer(string source)
+        public static LSVisualCollection Analyze(SyntaxNode node)
         {
-            Source = source;
-        }
-        #endregion
+            var result = new LSVisualCollection();
 
-        #region 내부 함수
-        private void Analyze()
-        {
-            if (Source?.Length > 0)
-            {
-                tree = CSharpSyntaxTree.ParseText(Source);
-                AnalyzeNode(tree.GetRoot());
-            }
-        }
-
-        private void AnalyzeNode(SyntaxNode node)
-        {
             foreach (var child in node.ChildNodes())
             {
-                if (child is UsingDirectiveSyntax)
+                var nodeType = Determine(child);
+                if (nodeType != null)
                 {
-                    Console.WriteLine((child as UsingDirectiveSyntax).Name);
+                    result.Add(nodeType);
                 }
-
-                if (child is NamespaceDeclarationSyntax)
-                {
-                    Console.WriteLine(" NS " + (child as NamespaceDeclarationSyntax).Name);
-                }
-
-                if (child is ClassDeclarationSyntax)
-                {
-                    Console.WriteLine(" CL " + (child as ClassDeclarationSyntax).Identifier.ValueText);
-                }
-
-                if (child is MethodDeclarationSyntax)
-                {
-                    Console.WriteLine(" ME " + (child as MethodDeclarationSyntax).Identifier.ValueText);
-                }
-
-                AnalyzeNode(child);
             }
+
+            return result;
         }
-        #endregion
+
+        public static LSVisual Determine(SyntaxNode node)
+        {
+            LSVisual result = null;
+
+            if (node is CompilationUnitSyntax)
+            {
+                result = new LSCompilationUnit
+                {
+                    CurrentNode = node
+                };
+            }
+
+            if (node is UsingDirectiveSyntax)
+            {
+                result = new LSUsingDirective
+                {
+                    CurrentNode = node
+                };
+            }
+
+            if (node is NamespaceDeclarationSyntax)
+            {
+                result = new LSNamespaceDeclaration
+                {
+                    CurrentNode = node
+                };
+            }
+
+            if (node is ClassDeclarationSyntax)
+            {
+                result = new LSClassDeclaration
+                {
+                    CurrentNode = node
+                };
+            }
+
+            if (node is MethodDeclarationSyntax)
+            {
+                result = new LSMethodDeclaration
+                {
+                    CurrentNode = node
+                };
+            }
+
+            return result;
+        }
     }
 }

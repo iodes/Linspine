@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Linspine.Collection;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Linspine.Sample
 {
@@ -28,7 +17,7 @@ namespace Linspine.Sample
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            var code =
+            var source =
 @"using System;
 using System.Collections;
 using System.Linq;
@@ -44,7 +33,24 @@ namespace HelloWorld
         }
     }
 }";
-            var analyzer = new LSAnalyzer(code);
+
+            var result = LSAnalyzer.Analyze(source);
+            PrintNode(result);
+        }
+
+        private void PrintNode(LSVisualCollection visual, int depth = 0)
+        {
+            foreach (var child in visual)
+            {
+                for (int i = 0; i < depth; i++)
+                {
+                    Console.Write("    ");
+                }
+
+                Console.WriteLine(child.Kind.ToString());
+
+                PrintNode(child.Children, depth + 1);
+            }
         }
     }
 }
