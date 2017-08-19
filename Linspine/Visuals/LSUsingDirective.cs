@@ -25,7 +25,7 @@ namespace Linspine.Visuals
                 Text = CurrentNode.ChildNodes().First().ToFullString()
             });
 
-            Children.Add(block);
+            Content = block;
         }
     }
 }

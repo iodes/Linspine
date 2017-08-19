@@ -5,7 +5,7 @@ using System.Windows.Controls;
 
 namespace Linspine.Cores
 {
-    public abstract class LSVisual : Grid
+    public abstract class LSVisual : ContentControl
     {
         public SyntaxKind Kind
         {
