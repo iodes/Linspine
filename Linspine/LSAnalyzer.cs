@@ -34,14 +34,6 @@ namespace Linspine
         {
             LSVisual result = null;
 
-            if (node is CompilationUnitSyntax)
-            {
-                result = new LSCompilationUnit
-                {
-                    CurrentNode = node
-                };
-            }
-
             if (node is UsingDirectiveSyntax)
             {
                 result = new LSUsingDirective

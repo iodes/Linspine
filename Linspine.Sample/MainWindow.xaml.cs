@@ -35,10 +35,11 @@ namespace HelloWorld
 }";
 
             var result = LSAnalyzer.Analyze(source);
-            PrintNode(result);
+            DrawNode(result);
         }
 
-        private void PrintNode(LSVisualCollection visual, int depth = 0)
+        //TODO 하위 노드는 비주얼 객체에서 처리하도록 수정
+        private void DrawNode(LSVisualCollection visual, int depth = 0)
         {
             foreach (var child in visual)
             {
@@ -47,9 +48,10 @@ namespace HelloWorld
                     Console.Write("    ");
                 }
 
+                blockCanvas.Children.Add(child);
                 Console.WriteLine(child.Kind.ToString());
 
-                PrintNode(child.Children, depth + 1);
+                DrawNode(child.ChildNodes, depth + 1);
             }
         }
     }

@@ -184,6 +184,9 @@
   <ItemGroup>
     <Compile Include="Base\LSVisual.cs" />
     <Compile Include="Collection\LSVisualCollection.cs" />
+    <Compile Include="Control\BaseBlock.xaml.cs">
+      <DependentUpon>BaseBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LSAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -199,7 +202,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Visual\LSClassDeclaration.cs" />
-    <Compile Include="Visual\LSCompilationUnit.cs" />
     <Compile Include="Visual\LSMethodDeclaration.cs" />
     <Compile Include="Visual\LSNamespaceDeclaration.cs" />
     <Compile Include="Visual\LSUsingDirective.cs" />
@@ -219,7 +221,12 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Control\BaseBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

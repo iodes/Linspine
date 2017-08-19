@@ -1,10 +1,11 @@
 ﻿using Linspine.Collection;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using System.Windows.Controls;
 
 namespace Linspine.Base
 {
-    public abstract class LSVisual
+    public abstract class LSVisual : Grid
     {
         public SyntaxKind Kind
         {
@@ -14,15 +15,7 @@ namespace Linspine.Base
             }
         }
 
-        public string Language
-        {
-            get
-            {
-                return CurrentNode.Language;
-            }
-        }
-
-        public LSVisualCollection Children
+        public LSVisualCollection ChildNodes
         {
             get
             {

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Linspine.Sample"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    
     <Grid>
-        
+        <Canvas x:Name="blockCanvas"/>
     </Grid>
 </Window>
