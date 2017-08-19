@@ -1,6 +1,6 @@
-﻿using Linspine.Base;
-using Linspine.Collection;
-using Linspine.Visual;
+﻿using Linspine.Collections;
+using Linspine.Cores;
+using Linspine.Visuals;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;

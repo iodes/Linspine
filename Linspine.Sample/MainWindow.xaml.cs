@@ -1,4 +1,4 @@
-﻿using Linspine.Collection;
+﻿using Linspine.Collections;
 using System;
 using System.Windows;
 

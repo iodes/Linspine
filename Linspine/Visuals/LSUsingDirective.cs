@@ -1,10 +1,10 @@
-﻿using Linspine.Base;
-using Linspine.Control;
+﻿using Linspine.Controls;
+using Linspine.Cores;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Linspine.Visual
+namespace Linspine.Visuals
 {
     public class LSUsingDirective : LSVisual
     {

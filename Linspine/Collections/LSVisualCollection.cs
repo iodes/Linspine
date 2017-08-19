@@ -1,7 +1,7 @@
-﻿using Linspine.Base;
+﻿using Linspine.Cores;
 using System.Collections.Generic;
 
-namespace Linspine.Collection
+namespace Linspine.Collections
 {
     public sealed class LSVisualCollection : List<LSVisual>
     {

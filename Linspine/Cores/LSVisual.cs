@@ -1,9 +1,9 @@
-﻿using Linspine.Collection;
+﻿using Linspine.Collections;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using System.Windows.Controls;
 
-namespace Linspine.Base
+namespace Linspine.Cores
 {
     public abstract class LSVisual : Grid
     {
